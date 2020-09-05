@@ -19,4 +19,3 @@ end
 game.Players.PlayerAdded:Connect(function(player)
     checkdeath(player)
 end)
-
