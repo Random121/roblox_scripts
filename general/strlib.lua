@@ -10,30 +10,30 @@ local ALPHA_NUM = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","
     "L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j",
     "k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
 
-local function StrLib.trim(string)
-    return str_match(string, "^%s*(.-)%s*$")
+function StrLib.trim(str)
+    return str_match(str, "^%s*(.-)%s*$")
 end
 
-local function StrLib.split(string, seperator)
+function StrLib.split(str, seperator)
     if seperator == nil or seperator == '' then
-        return {string}
+        return {str}
     end
     local words = {}
-    for v in str_gmatch(string,"[^"..seperator.."]+") do
+    for v in str_gmatch(str,"[^"..seperator.."]+") do
 		words[#words+1] = v
     end
     return words
 end
 
-local function StrLib.startsWith(string, search)
-    return str_sub(string, 1, #search) == search
+function StrLib.startsWith(str, search)
+    return str_sub(str, 1, #search) == search
 end
 
-local function StrLib.endsWith(string, search)
-    return str_sub(string, -#search) == search
+function StrLib.endsWith(str, search)
+    return str_sub(str, -#search) == search
 end
 
-local function StrLib.random(length)
+function StrLib.random(length)
     if length == nil or length <= 0 then
         return ''
     end
@@ -44,8 +44,8 @@ local function StrLib.random(length)
     return tbl_concat(chars)
 end
 
-local function StrLib.charAt(string, position)
-    return str_sub(string, position, position)
+function StrLib.charAt(str, position)
+    return str_sub(str, position, position)
 end
 
 return StrLib
